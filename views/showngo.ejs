@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show ngo</title>
-</head>
-<body>
+<% layout('layouts/boilerplate')%>
     <H1>singe Ngo View</H1>
     <div>
         <h1><%=ngoView.ngoName%></h1>
         <h2><%= ngoView.directors%></h2>
         
-        <footer>
+
         <div>
             <a href="/show/<%=ngoView._id%>/edit">Edit ngo</a>
             <a href="/show">All Ngos</a>
         </div>
-    </footer>
-</body>
-</html>
+

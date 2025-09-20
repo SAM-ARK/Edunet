@@ -1,9 +1,9 @@
 const express = require('express');
 const { default: mongoose } = require('mongoose');
 const app = express();
+const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
-const serve  = require('express-static');
 const path = require('path');
 const ngo = require('./models/ngomodels')
 const port = 3000;
@@ -20,7 +20,7 @@ db.once("open", () =>{
 
 
 
-app.use(express.static('views'));
+app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, 'views'));
 
