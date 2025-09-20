@@ -44,6 +44,12 @@ app.get('/show', async (req,res) => {
     res.render('home', {ngos});
 });
 
+app.get('/admin',async (req,res) =>{
+    const ngos = await ngo.countDocuments({});
+    const ngos_madiga = await ngo.countDocuments({ location : "Madiga"});
+    res.render('admin',{ngos,ngos_madiga});
+});
+
 app.get('/show/new',async (req,res) =>{
     res.render('newngo');
 });
@@ -54,9 +60,9 @@ app.post('/show',async (req,res) =>{
     res.redirect(`/show/${n._id}`)
 });
 
+
 app.get('/show/:id', async (req,res) => {
     const ngoView = await ngo.findById(req.params.id);
-    console.log(`${ngoView}`)
     res.render('showngo', {ngoView});
 });
 
