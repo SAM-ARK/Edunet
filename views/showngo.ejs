@@ -1,12 +1,27 @@
 <% layout('layouts/boilerplate')%>
-    <H1>singe Ngo View</H1>
-    <div>
-        <h1><%=ngoView.ngoName%></h1>
-        <h2><%= ngoView.directors%></h2>
-        
+  <h1>View  <%=ngoView.ngoName%></h1>
 
-        <div>
-            <a href="/show/<%=ngoView._id%>/edit">Edit ngo</a>
-            <a href="/show">All Ngos</a>
-        </div>
+    <div>
+
+        <form action="/show/<%=ngoView._id%>?_method=PUT" method="post">
+            <div class="mb-3">
+                <label for="" class="form-lable">Ngo Name</label>
+                <input type="text" class="form-control" id="ngoname" name="ngo[ngoName]" value="<%=ngoView.ngoName%>" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-lable">Directors(, separated)</label>
+                <input type="text" class="form-control" id="directors" name="ngo[directors]" value="<%=ngoView.directors%>" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-lable">Location</label>
+                <input type="text" class="form-control  id="location" name="ngo[location]" value="<%=ngoView.location%>" disabled>
+            </div>
+        </form>
+    </div>
+    <div class="btn btn-warning">
+            <a href="/show/<%=ngoView._id%>/edit" class="text-style-none">Edi <%=ngoView.ngoName%></a>
+    </div>
+    <div class="btn btn-warning">
+            <a href="/show" class="text-style-none">All Ngos</a>
+    </div>
 
